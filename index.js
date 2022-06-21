@@ -1,8 +1,17 @@
 const express=require('express');
 const app = express();
+const cors = require("cors")
 const PORT = 8080;
 app.use(express.json())
 app.listen(PORT, () => console.log(`it's alive`));
+app.use(
+	cors(
+		{
+//			origin:"http://127.0.0.1:28516"
+			origin:"*"
+		}
+	)
+)
 app.get("/positions", (req, res) => 
 	{
 	res.status(200).send({

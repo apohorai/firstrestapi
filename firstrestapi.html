@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
-	<a href="https://www.youtube.com/watch?v=-MTSQjw5DrM&ab_channel=Fireship">Youtube link</a>
-	<p>
-	npm init -y<br>
-	npm install express<br>
-	</p>	
-	<h1>basics</h1>
-	<p>
-	const app = require('express')()<br>
-	const PORT = 8080;<br>
-	app.listen(<br>
-	PORT,<br>
-	() => console.log(`it's alive`)<br>
-	)<br>
-	</p>
-	<p>
-	node .
-	</p>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<a
+			href="https://www.youtube.com/watch?v=-MTSQjw5DrM&ab_channel=Fireship"
+			>Youtube link</a
+		>
+		<p>
+			npm init -y<br />
+			npm install express<br />
+		</p>
+		<h1>basics</h1>
+		<p>
+			const app = require('express')()<br />
+			const PORT = 8080;<br />
+			app.listen(<br />
+			PORT,<br />
+			() => console.log(`it's alive`)<br />
+			)<br />
+		</p>
+		<p>node .</p>
+		<h1>Set vim-rest-console</h1>
+		<p>
+			:set ft=rest<br />
+			c-j<br />
+		</p>
+		<p id="x">
+		<p id="y">
+			<script>
+				const request = new XMLHttpRequest();
+				request.addEventListener(
+					"readystatechange",
+					() => {
+						if (request.readyState === 4) {
+							const data=JSON.parse(request.responseText)
+							console.log(
+								"loaded",
+								request.responseText
+							);
+					document.getElementById("x").innerHTML =data.x
+					document.getElementById("y").innerHTML =data.y
+						}
+					}
+				);
+				request.open(
+					"GET",
+					"http://localhost:8080/positions"
+				);
+				request.send();
+			</script>
+		</p>
+	</body>
 </html>
